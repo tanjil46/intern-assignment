@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Details = () => {
@@ -40,8 +41,13 @@ const formHandler=e=>{
     const ticketPrice=e.target.price.value
 
  const movieInfo={movieName,preDate,movieday,ticketPrice}
+ localStorage.setItem('booking', JSON.stringify(movieInfo))
+ Swal.fire(
+    'success',
+    'Succesfully Booked Ticket',
+    'success'
+ )
 
-console.log(movieInfo)
 }
 
 
@@ -58,15 +64,15 @@ console.log(movieInfo)
     return (
         <div className="bg-slate-500 my-8 mx-6 p-6">
         <div className="w-full  h-full   flex md:flex-row flex-col   gap-3">
-            <div className="w-[60%]">
-         <img className=" h-[600px]" src={matchMovies?.show?.image?.original}></img>
+            <div className="md:w-[60%]">
+         <img className=" md:h-[600px]" src={matchMovies?.show?.image?.original}></img>
          </div>
 
-         <div className="w-[40%] space-y-6">
+         <div className="md:w-[40%] space-y-6">
             <p className="text-slate-200 text-center md:text-2xl">{matchMovies?.show?.name}</p>
 <div className="">
-            <p className="text-slate-200">Genres:<span className="text-xl">{matchMovies?.show?.genres[0]}</span></p>
-            <p className="text-slate-200">Country:<span className="text-xl">{matchMovies?.show?.network?.country?.name}</span></p>
+            <p className="text-slate-200">Genres:<span className="md:text-xl">{matchMovies?.show?.genres[0]}</span></p>
+            <p className="text-slate-200">Country:<span className="md:text-xl">{matchMovies?.show?.network?.country?.name}</span></p>
 
 </div>
 
@@ -86,7 +92,7 @@ console.log(movieInfo)
 
 
          </div>
-<div className="text-center">
+<div className="text-center my-3">
 <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>Book Ticket</button>
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">

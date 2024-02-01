@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -26,7 +27,7 @@ const navigate=useNavigate()
 
 
     
-    console.log(userInfo)
+   
     }
 
 

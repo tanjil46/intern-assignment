@@ -27,16 +27,15 @@ const Movies = () => {
   
   },[])
 
-console.log(movies)
 
     return (
         <div>
            <p className="text-center md:text-2xl my-8">Here Our Movies List</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-6 my-6 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-6 my-6 gap-6">
                 {
-                    movies.map((movie,idx)=><div key={idx} className="card zoom-image  w-full bg-slate-500 shadow-xl">
-                    <figure><img src={movie?.show?.image?.medium} alt="Shoes" /></figure>
+                    movies.map((movie,idx)=><div key={idx} className="card zoom-image mx-auto md:w-full w-[300px]  bg-slate-500 shadow-xl">
+                    <figure><img className="my-3" src={ movie?.show?.image?.medium} alt="movies" /></figure>
                     <div className="card-body">
                       <h2 className="card-title">{movie?.show?.name}</h2>
                     
